@@ -1,3 +1,4 @@
+import { get } from 'http';
 import { Image } from './image.resource'
 
 class ImageService {
@@ -9,6 +10,4 @@ class ImageService {
     }
 }
 
-export const useImageService = () => new ImageService(){
-    
-}
+export const useImageService = () => new ImageService();
