@@ -1,7 +1,12 @@
-export default function FormularioPage(){
+import { Template } from "@/components"
+
+export default function FormularioPage() {
     return (
-        <h1>
-            Formulário
-        </h1>
+        <Template loading = {false}>
+
+            <h1>
+                Formulário
+            </h1>
+        </Template>
     )
 }

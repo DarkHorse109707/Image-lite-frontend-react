@@ -1,9 +1,10 @@
 'use client'
 
-import { Template, ImageCard } from '@/components'
+import { Template, ImageCard, Button, InputText } from '@/components'
 import { Image } from '@/resources/image/image.resource';
 import { useImageService } from '@/resources/image/image.service'
 import { useState } from 'react'
+import Link from 'next/link';
 
 export default function GaleriaPage() {
 
@@ -40,12 +41,11 @@ export default function GaleriaPage() {
 
 
     return (
-        <Template loading = {loading}>
+        <Template loading={loading}>
             <section className='flex flex-col items-center justify-center my-5'>
                 <div className='flex space-x-4'>
-                    <input type='text'
-                        className='border px-3 py-2 rounded-lg text-gray-900'
-                        onChange={event => setQuery(event.target.value)} />
+                    <InputText placeholder='Digite Nome ou Tag' onChange={event => setQuery(event.target.value)}/>
+                    
                     <select onChange={event => setExtension(event.target.value)} className='border px-4 py-2 rounded-lg text-gray-900'>
                         <option value=''>Todos formatos</option>
                         <option value='JPEG'>.JPEG</option>
@@ -53,12 +53,11 @@ export default function GaleriaPage() {
                         <option value='PDF'>.PDF</option>
                         <option value='GIF'>.GIF</option>
                     </select>
-                    <button className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-300' onClick={searchImages}>
-                        Buscar
-                    </button>
-                    <button className='bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-300'>
-                        + Novo
-                    </button>
+                    <Button style='bg-blue-500 hover:bg-blue-300' label='Buscar' onClick={searchImages} />
+                   
+                    <Link href="/formulario">
+                       <Button style='bg-yellow-500 hover:bg-yellow-300' label='+ Novo' />
+                    </Link>
 
                 </div>
             </section>
